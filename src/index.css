@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:opsz,wght@14..32,200..900&family=Space+Grotesk:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -7,10 +7,9 @@
   --color-tertiary: #757e8d;
 
   --font-sans:
-    "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    "Nunito", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   --font-display:
-    "Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, Arial,
-    sans-serif;
+    "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
 .app-container {
@@ -23,7 +22,7 @@ html {
 
 body {
   font-family: var(--font-sans);
-  font-optical-sizing: auto;
+  font-style: normal;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -65,10 +64,10 @@ select {
   scrollbar-width: thin;
 }
 .styled-scrollbar::-webkit-scrollbar {
-  @apply w-1.5 h-1.5 lg:w-2 lg:h-2;
+  @apply lg:w-2 w-1 h-1;
 }
 .styled-scrollbar::-webkit-scrollbar-thumb {
-  @apply bg-slate-300/80 rounded-full;
+  @apply bg-[#cbd5e1] rounded-full;
 }
 .styled-scrollbar::-webkit-scrollbar-track {
   @apply bg-transparent;
@@ -81,7 +80,7 @@ select {
   @apply bg-primary;
 }
 .borderPrimary {
-  @apply border-primary/10;
+  border-color: #2f531810;
 }
 
 /* Remove number arrows */

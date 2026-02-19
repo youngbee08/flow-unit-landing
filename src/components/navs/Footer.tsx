@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { HiOutlineMail } from "react-icons/hi";
-import {  FaLinkedinIn } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa";
 import assets from "../../assets/assets";
 import { FaXTwitter } from "react-icons/fa6";
 
@@ -48,24 +48,26 @@ const Footer: React.FC = () => {
     <footer className="bg-white border-t border-tertiary/20 mt-auto">
       <div className="app-container py-12">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-4 flex flex-col gap-1">
             <Link to="/" className="flex items-center gap-3">
               <img
                 src={assets.noBgLogo}
                 alt="FlowUnit logo"
-                className="w-10 h-10 object-contain"
+                className="w-15 h-10 object-contain -translate-x-5"
               />
-              <span className="text-lg font-bold text-primary">FlowUnit</span>
+              <span className="text-lg font-bold text-primary -translate-x-12">
+                FlowUnit
+              </span>
             </Link>
 
-            <p className="mt-4 max-w-sm text-sm text-tertiary leading-relaxed">
+            <p className="max-w-sm text-sm text-tertiary leading-relaxed">
               Making project management effortless through AI. Built for modern,
               distributed teams around the globe.
             </p>
 
-            <div className="mt-6 flex items-center gap-3">
+            <div className="flex items-center gap-3 mt-3">
               <a
-                href="mailto:support@flowunit.app"
+                href="mailto:flowunitapp@gmail.com"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/5 hover:bg-black/10 transition"
                 aria-label="Email"
               >
@@ -142,7 +144,6 @@ const Footer: React.FC = () => {
       </div>
     </footer>
   );
-
 };
 
 export default Footer;

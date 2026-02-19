@@ -84,7 +84,7 @@ const Header = () => {
 
               <Link
                 to="/get-started"
-                className="inline-flex items-center justify-center h-10 px-5 rounded-xl bg-primary text-white text-sm font-semibold shadow-sm hover:brightness-110 transition"
+                className="inline-flex items-center justify-center px-5 py-2 rounded-xl bg-primary text-white text-sm font-semibold shadow-sm hover:brightness-110 transition"
               >
                 Get Started
               </Link>
