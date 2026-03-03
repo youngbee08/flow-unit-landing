@@ -12,33 +12,36 @@ const Footer: React.FC = () => {
     {
       title: "Product",
       links: [
-        { label: "Features", to: "/features" },
-        { label: "Pricing", to: "/pricing" },
+        { label: "Features", to: "/#features" },
+        { label: "How it Works", to: "/#how-it-works" },
         {
           label: "Releases",
           to: "https://github.com/youngbee08/flow-unit-client/releases",
+          target: "_blank",
         },
       ],
     },
     {
       title: "Company",
       links: [
-        { label: "About", to: "/about" },
-        { label: "Contact", to: "/contact" },
-        { label: "Privacy Policy", to: "/privacy" },
+        { label: "Testimonials", to: "/#testimonials" },
+        { label: "Contact", to: "mailto:flowunitapp@gmail.com" },
+        { label: "Privacy Policy", to: "/legal/privacy-policy" },
       ],
     },
     {
       title: "Support",
       links: [
-        { label: "Help Center", to: "/help" },
+        { label: "Call Support", to: "tel:+2348161737859" },
         {
           label: "Community",
           to: "https://whatsapp.com/channel/0029Vb2Tnmp1Hsq0howQez1V",
+          target: "_blank",
         },
         {
-          label: "API Docs",
-          to: "https://flowunitserver.vercel.app/#overview",
+          label: "Demo Guide",
+          to: "https://www.youtube.com/@zenithdevtech",
+          target: "_blank",
         },
       ],
     },
@@ -61,8 +64,9 @@ const Footer: React.FC = () => {
             </Link>
 
             <p className="max-w-sm text-sm text-tertiary leading-relaxed">
-              Making project management effortless through AI. Built for modern,
-              distributed teams around the globe.
+              Built for small teams, startups, and solo builders who want
+              structure without stress. Plan better. Execute faster. Stay
+              consistent.
             </p>
 
             <div className="flex items-center gap-3 mt-3">
@@ -106,12 +110,13 @@ const Footer: React.FC = () => {
                   <ul className="mt-4 space-y-3">
                     {col.links.map((l) => (
                       <li key={l.label}>
-                        <Link
-                          to={l.to}
+                        <a
+                          href={l.to}
+                          target={l.target || "_parent"}
                           className="text-sm text-tertiary hover:text-primary transition-colors"
                         >
                           {l.label}
-                        </Link>
+                        </a>
                       </li>
                     ))}
                   </ul>
@@ -128,13 +133,13 @@ const Footer: React.FC = () => {
 
           <div className="flex items-center gap-6 text-xs">
             <Link
-              to="/terms"
+              to="/legal/terms-of-service"
               className="text-tertiary hover:text-primary transition-colors"
             >
               Terms of Service
             </Link>
             <Link
-              to="/privacy"
+              to="/legal/privacy-policy"
               className="text-tertiary hover:text-primary transition-colors"
             >
               Privacy Policy
