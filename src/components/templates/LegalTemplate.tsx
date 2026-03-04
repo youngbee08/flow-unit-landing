@@ -19,9 +19,18 @@ const cls = (...s: Array<string | false | null | undefined>) =>
 
 const TOP_OFFSET = 96;
 
-function useContainedSticky(opts: {
-  containerRef: React.RefObject<HTMLElement>;
-  sidebarRef: React.RefObject<HTMLElement>;
+/**
+ * Contained "sticky" fallback:
+ * - Sidebar follows scroll starting after container top
+ * - Stops at container bottom
+ * - Uses translateY, so it works even when CSS sticky is blocked
+ */
+function useContainedSticky<
+  C extends HTMLElement,
+  S extends HTMLElement,
+>(opts: {
+  containerRef: React.RefObject<C | null>;
+  sidebarRef: React.RefObject<S | null>;
   topOffset: number;
   enabled: boolean;
 }) {
@@ -185,7 +194,6 @@ export const LegalTemplate: React.FC<LegalTemplateProps> = ({
             ref={sidebarInnerRef}
             className="will-change-transform transform-gpu"
           >
-            {" "}
             <div className="rounded-xl border border-tertiary/15 bg-white p-4 h-125">
               <div className="max-h-120 overflow-auto styled-scrollbar">
                 <div className="text-primary font-semibold text-sm">
@@ -225,6 +233,7 @@ export const LegalTemplate: React.FC<LegalTemplateProps> = ({
                 </div>
               </div>
             </div>
+
             {sideCard ? (
               <div className="mt-4 hidden lg:block">
                 <div className="rounded-2xl border border-tertiary/15 bg-white p-5 shadow-sm">
