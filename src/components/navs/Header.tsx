@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { HiOutlineMenuAlt3, HiX } from "react-icons/hi";
 import { AnimatePresence, motion } from "framer-motion";
 import navitems from "../../lib/navitems";
 import assets from "../../assets/assets";
+import { MenuIcon } from "lucide-react";
 
 const Header = () => {
   const location = useLocation();
@@ -36,7 +36,7 @@ const Header = () => {
               aria-label="Open menu"
               whileTap={{ scale: 0.95 }}
             >
-              <HiOutlineMenuAlt3 className="text-2xl text-primary" />
+              <MenuIcon className="text-2xl text-primary" />
             </motion.button>
 
             <Link to="/" className="flex items-center gap-3">
@@ -101,78 +101,64 @@ const Header = () => {
         {open && (
           <>
             <motion.div
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 md:hidden"
+              className="fixed inset-0 bg-black/30 z-40 md:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setOpen(false)}
             />
 
-            <motion.aside
-              className="fixed top-0 left-0 h-full w-72 bg-white shadow-xl z-50 md:hidden flex flex-col"
-              initial={{ x: -320 }}
-              animate={{ x: 0 }}
-              exit={{ x: -320 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
+            <motion.div
+              className="absolute left-0 right-0 z-50 md:hidden"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
             >
-              <div className="flex items-center justify-between px-5 h-16 border-b border-tertiary/20">
-                <Link to="/" className="flex items-center gap-3">
-                  <img
-                    src={assets.noBgLogo}
-                    alt="FlowUnit logo"
-                    className="w-15 h-10 object-contain -translate-x-5"
-                  />
-                  <span className="text-lg font-bold text-primary -translate-x-12">
-                    FlowUnit
-                  </span>
-                </Link>
+              <div className="bg-white border-b border-tertiary/20 shadow-lg">
+                <div className="app-container py-4">
+                  <div className="flex flex-col gap-1">
+                    {navitems.map((item) => {
+                      const active = location.pathname === item.path;
 
-                <button
-                  onClick={() => setOpen(false)}
-                  className="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-black/5"
-                >
-                  <HiX className="text-xl text-primary" />
-                </button>
-              </div>
+                      return (
+                        <a
+                          key={item.name}
+                          href={item.path}
+                          onClick={() => setOpen(false)}
+                          className={[
+                            "px-4 py-3 rounded-xl text-sm font-semibold transition",
+                            active
+                              ? "bg-primary/10 text-primary"
+                              : "text-tertiary hover:bg-gray-50 hover:text-primary",
+                          ].join(" ")}
+                        >
+                          {item.name}
+                        </a>
+                      );
+                    })}
+                  </div>
 
-              <div className="flex flex-col px-4 py-6 gap-2">
-                {navitems.map((item) => {
-                  const active = location.pathname === item.path;
-
-                  return (
-                    <a
-                      key={item.name}
-                      href={item.path}
+                  <div className="mt-4 pt-4 border-t border-tertiary/15 flex flex-col gap-3">
+                    <Link
+                      to={import.meta.env.VITE_DASHBOARD_URL}
                       onClick={() => setOpen(false)}
-                      className={[
-                        "px-4 py-3 rounded-xl text-sm font-semibold transition",
-                        active
-                          ? "bg-primary/10 text-primary"
-                          : "text-tertiary hover:bg-gray-50 hover:text-primary",
-                      ].join(" ")}
+                      className="text-center text-sm font-semibold text-tertiary hover:text-primary transition-colors"
                     >
-                      {item.name}
-                    </a>
-                  );
-                })}
-              </div>
+                      Login
+                    </Link>
 
-              <div className="mt-auto p-4 border-t border-tertiary/20 flex flex-col gap-3">
-                <Link
-                  to={import.meta.env.VITE_DASHBOARD_URL}
-                  className="text-center text-sm font-semibold text-tertiary hover:text-primary"
-                >
-                  Login
-                </Link>
-
-                <Link
-                  to="/get-started"
-                  className="text-center px-4 py-2.5 rounded-xl bg-primary text-white text-sm font-semibold hover:brightness-110 transition"
-                >
-                  Get Started
-                </Link>
+                    <Link
+                      to="/get-started"
+                      onClick={() => setOpen(false)}
+                      className="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-primary text-white text-sm font-semibold shadow-sm hover:brightness-110 transition"
+                    >
+                      Get Started
+                    </Link>
+                  </div>
+                </div>
               </div>
-            </motion.aside>
+            </motion.div>
           </>
         )}
       </AnimatePresence>
