@@ -210,11 +210,19 @@ const Home: React.FC = () => {
           variants={fadeUp}
           className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto max-w-xs sm:max-w-none"
         >
-          <button className="w-full sm:w-auto px-5 py-3 rounded-xl bg-primary text-white text-sm font-semibold hover:brightness-110 transition cursor-pointer">
+          <button
+            onClick={() => (location.href = "/get-started")}
+            className="w-full sm:w-auto px-5 py-3 rounded-xl bg-primary text-white text-sm font-semibold hover:brightness-110 transition cursor-pointer"
+          >
             Get Started
           </button>
 
-          <button className="w-full sm:w-auto px-5 py-3 rounded-xl bg-white border border-tertiary/40 text-primary text-sm font-semibold hover:brightness-110 transition cursor-pointer flex items-center justify-center gap-1">
+          <button
+            onClick={() =>
+              window.open("https://www.youtube.com/@zenithdevtech")
+            }
+            className="w-full sm:w-auto px-5 py-3 rounded-xl bg-white border border-tertiary/40 text-primary text-sm font-semibold hover:brightness-110 transition cursor-pointer flex items-center justify-center gap-1"
+          >
             <IoIosPlayCircle />
             Watch Demo
           </button>

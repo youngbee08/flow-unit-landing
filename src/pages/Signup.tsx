@@ -76,7 +76,10 @@ function Signup() {
   return (
     <div className="min-h-dvh w-full flex items-center justify-center bg-linear-to-b from-primary/10 via-white to-white px-4 py-10 font-sans text-slate-800">
       <div className="w-full max-w-130">
-        <div className="flex items-center lg:justify-center gap-0 mb-2 lg:mb-7">
+        <div
+          className="flex items-center lg:justify-center gap-0 mb-2 lg:mb-7 cursor-pointer"
+          onClick={() => navigate("/")}
+        >
           <div className="w-24 h-24">
             <img src={assets.noBgLogo} alt="Logo" className="w-full h-full" />
           </div>
