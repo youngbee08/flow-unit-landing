@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { LegalTemplate } from "../components/templates/LegalTemplate";
+import Seo from "../components/Seo";
 
 export default function TermsPage() {
   const toc = useMemo(
@@ -159,23 +160,30 @@ export default function TermsPage() {
   );
 
   return (
-    <LegalTemplate
-      pageTitle="Terms of Service"
-      updatedAt="March 3, 2026"
-      readTime="12 minutes"
-      toc={toc}
-      sections={sections}
-      sideCard={
-        <div className="flex flex-col gap-2">
-          <div className="text-primary font-semibold">Need help?</div>
-          <div className="text-tertiary text-sm">
-            If anything here is unclear, reach out and we’ll clarify.
+    <>
+      <Seo
+        title="Terms of Service — FlowUnit"
+        description="The terms and conditions for using FlowUnit."
+        canonicalPath="/legal/terms-of-service"
+      />
+      <LegalTemplate
+        pageTitle="Terms of Service"
+        updatedAt="March 3, 2026"
+        readTime="12 minutes"
+        toc={toc}
+        sections={sections}
+        sideCard={
+          <div className="flex flex-col gap-2">
+            <div className="text-primary font-semibold">Need help?</div>
+            <div className="text-tertiary text-sm">
+              If anything here is unclear, reach out and we’ll clarify.
+            </div>
+            <button className="mt-2 px-4 py-2.5 rounded-xl bg-primary text-white text-sm font-semibold hover:brightness-110 transition">
+              Message Support
+            </button>
           </div>
-          <button className="mt-2 px-4 py-2.5 rounded-xl bg-primary text-white text-sm font-semibold hover:brightness-110 transition">
-            Message Support
-          </button>
-        </div>
-      }
-    />
+        }
+      />
+    </>
   );
 }

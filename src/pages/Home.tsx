@@ -214,6 +214,11 @@ const Home: React.FC = () => {
             "@type": "WebSite",
             name: "FlowUnit",
             url: "https://flowunit.co",
+            potentialAction: {
+              "@type": "SearchAction",
+              target: "https://flowunit.co/?q={search_term_string}",
+              "query-input": "required name=search_term_string",
+            },
           })}
         </script>
       </Helmet>
