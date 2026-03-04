@@ -6,6 +6,7 @@ import Terms from "./pages/Terms";
 import Signup from "./pages/Signup";
 import VerifyEmail from "./pages/VerifyEmail";
 import { Toaster } from "sonner";
+import NotFound from "./pages/404";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/legal/privacy-policy" element={<Privacy />} />
           <Route path="/legal/terms-of-service" element={<Terms />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
       <Toaster />

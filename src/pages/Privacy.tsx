@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { LegalTemplate } from "../components/templates/LegalTemplate";
+import Seo from "../components/Seo";
 
 export default function PrivacyPage() {
   const toc = useMemo(
@@ -153,23 +154,31 @@ export default function PrivacyPage() {
   );
 
   return (
-    <LegalTemplate
-      pageTitle="Privacy Policy"
-      updatedAt="March 3, 2026"
-      readTime="10 minutes"
-      toc={toc}
-      sections={sections}
-      sideCard={
-        <div className="flex flex-col gap-2">
-          <div className="text-primary font-semibold">Privacy request</div>
-          <div className="text-tertiary text-sm">
-            Need access/export/delete? Send a request and we’ll guide you.
+    <>
+      <Seo
+        title="Privacy Policy — FlowUnit"
+        description="How FlowUnit collects, uses, and protects your information."
+        canonicalPath="/legal/privacy-policy"
+      />
+
+      <LegalTemplate
+        pageTitle="Privacy Policy"
+        updatedAt="March 3, 2026"
+        readTime="10 minutes"
+        toc={toc}
+        sections={sections}
+        sideCard={
+          <div className="flex flex-col gap-2">
+            <div className="text-primary font-semibold">Privacy request</div>
+            <div className="text-tertiary text-sm">
+              Need access/export/delete? Send a request and we’ll guide you.
+            </div>
+            <button className="mt-2 px-4 py-2.5 rounded-xl bg-primary text-white text-sm font-semibold hover:brightness-110 transition">
+              Start Request
+            </button>
           </div>
-          <button className="mt-2 px-4 py-2.5 rounded-xl bg-primary text-white text-sm font-semibold hover:brightness-110 transition">
-            Start Request
-          </button>
-        </div>
-      }
-    />
+        }
+      />
+    </>
   );
 }
