@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
         { label: "Call Support", to: "tel:+2348161737859" },
         {
           label: "Community",
-          to: "https://whatsapp.com/channel/0029Vb2Tnmp1Hsq0howQez1V",
+          to: "https://whatsapp.com/channel/0029VbCFgDY77qVZ0FquTj2w",
           target: "_blank",
         },
         {
