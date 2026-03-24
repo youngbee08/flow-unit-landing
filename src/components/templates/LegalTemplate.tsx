@@ -178,10 +178,10 @@ export const LegalTemplate: React.FC<LegalTemplateProps> = ({
             <FaCalendar />
           </span>
           <span>Last updated {updatedAt}</span>
-          <span className="mx-2">
+          <span className="mx-2 lg:flex hidden">
             <IoTimeOutline />
           </span>
-          <span>Reading time: {readTime}</span>
+          <span className="lg:flex hidden">Reading time: {readTime}</span>
         </div>
       </div>
 
@@ -290,12 +290,12 @@ export const LegalTemplate: React.FC<LegalTemplateProps> = ({
                   </p>
                 </div>
 
-                <button
-                  type="button"
-                  className="w-full sm:w-auto px-5 py-3 rounded-xl bg-white text-primary text-sm font-semibold hover:brightness-110 transition"
+                <a
+                  href="mailto:flowunitapp@gmail.com"
+                  className="w-full sm:w-auto px-5 py-3 rounded-xl bg-white text-primary text-sm font-semibold hover:brightness-110 transition text-center"
                 >
                   Contact Support
-                </button>
+                </a>
               </div>
             </div>
           </div>
